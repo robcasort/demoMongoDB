@@ -17,10 +17,10 @@ public class LoadDatabase {
 		repository.deleteAll();
 		
 		return args -> {
-			log.info("Preloading " + repository.save(new Persona("Juan", "Perez", 33, "jprez@gmail.com")));
-			log.info("Preloading " + repository.save(new Persona("Andrea", "Garcia", 42, "agarcia@gmail.com")));
-			log.info("Preloading " + repository.save(new Persona("Maria", "Cardenas", 28, "agarcia@gmail.com")));
-			log.info("Preloading " + repository.save(new Persona("Julio", "Miranda", 35, "agarcia@gmail.com")));
+			log.info("Registrando " + repository.save(new Persona("Juan", "Perez", 33, "jprez@gmail.com")));
+			log.info("Registrando " + repository.save(new Persona("Andrea", "Garcia", 42, "agarcia@gmail.com")));
+			log.info("Registrando " + repository.save(new Persona("Maria", "Cardenas", 28, "agarcia@gmail.com")));
+			log.info("Registrando " + repository.save(new Persona("Julio", "Miranda", 35, "agarcia@gmail.com")));
 		};
 	}
 }

@@ -14,9 +14,13 @@
 	<name>demoMongoDB</name>
 	<description>Demo de Spring y MongoDB</description>
 	<properties>
-		<java.version>11</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>11</java.version>		
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+    	<maven.compiler.target>${java.version}</maven.compiler.target>		
 		<spring-cloud-azure.version>4.5.0</spring-cloud-azure.version>
 		<springdoc-openapi-version>1.6.14</springdoc-openapi-version>
+		<jacoco-version>0.8.8</jacoco-version>
 	</properties> 
 	<dependencies>
 		<dependency>
@@ -84,6 +88,28 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			
+			<plugin>
+			    <groupId>org.jacoco</groupId>
+			    <artifactId>jacoco-maven-plugin</artifactId>
+			    <version>${jacoco-version}</version>
+			    <executions>
+			        <execution>
+			            <goals>
+			                <goal>prepare-agent</goal>
+			            </goals>
+			        </execution>
+			        
+			        <!-- attached to Maven test phase -->
+			        <execution>
+			            <id>report</id>
+			            <phase>test</phase>
+			            <goals>
+			                <goal>report</goal>
+			            </goals>
+			        </execution>
+			    </executions>
 			</plugin>
 		</plugins>
 	</build>

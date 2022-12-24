@@ -21,7 +21,36 @@
 		<spring-cloud-azure.version>4.5.0</spring-cloud-azure.version>
 		<springdoc-openapi-version>1.6.14</springdoc-openapi-version>
 		<jacoco-version>0.8.8</jacoco-version>
+		<log4j2.version>2.19.0</log4j2.version>
+		<junit-jupiter.version>5.9.1</junit-jupiter.version>
 	</properties> 
+    
+    <dependencyManagement>
+		<dependencies>
+			<dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-bom</artifactId>
+                <version>${log4j2.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>            
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency> 
+			<dependency>
+				<groupId>com.azure.spring</groupId>
+				<artifactId>spring-cloud-azure-dependencies</artifactId>
+				<version>${spring-cloud-azure.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+    
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -69,19 +98,18 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
-		</dependency>		
-	</dependencies>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>com.azure.spring</groupId>
-				<artifactId>spring-cloud-azure-dependencies</artifactId>
-				<version>${spring-cloud-azure.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+		</dependency>
+		 <dependency>
+	      <groupId>org.junit.platform</groupId>
+	      <artifactId>junit-platform-runner</artifactId>      
+	      <scope>test</scope>
+	    </dependency>		
+		<dependency>
+		    <groupId>io.rest-assured</groupId>
+		    <artifactId>rest-assured</artifactId>
+		    <scope>test</scope>
+		</dependency>
+	</dependencies>		
 
 	<build>
 		<plugins>

@@ -34,7 +34,7 @@ public interface PersonaRepository extends MongoRepository<Persona, String> {
 	@Query("{'nombre': {$regex : ?0}})")
     List<Persona> buscarPorNombreConPatronCaseSentive(String nombre);
 	
-	// Case insesitive
+	// Case insensitive
 	@Query("{ 'nombre' : {'$regex' : ?0 , $options: 'i'}}")
     List<Persona> buscarPorNombreConPatronCaseInsensitive(String patronNombre);
 }

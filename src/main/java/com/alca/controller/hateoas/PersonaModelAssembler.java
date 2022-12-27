@@ -10,20 +10,19 @@ import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
 
 import com.alca.controller.PersonaController;
-import com.alca.model.Persona;
+import com.alca.dto.PersonaResponse;
 
 @Component
-public class PersonaModelAssembler implements RepresentationModelAssembler<Persona, EntityModel<Persona>> {
+public class PersonaModelAssembler implements RepresentationModelAssembler<PersonaResponse, EntityModel<PersonaResponse>> {
 
-	  @Override
-	  public EntityModel<Persona> toModel(Persona persona) {
-
-	    return EntityModel.of(persona, 
-	        linkTo(methodOn(PersonaController.class).verPersona(persona.getId())).withSelfRel(),
-	        linkTo(methodOn(PersonaController.class).listarTodos()).withRel("personas"));
-	  }
-	  	  
-	  public CollectionModel<EntityModel<Persona>> toModel(List<EntityModel<Persona>> personas) {
-		  return CollectionModel.of(personas, linkTo(methodOn(PersonaController.class).listarTodos()).withSelfRel());
-	  }
+	@Override
+	public EntityModel<PersonaResponse> toModel(PersonaResponse persona) {
+		return EntityModel.of(persona,
+				linkTo(methodOn(PersonaController.class).verPersona(persona.getId())).withSelfRel(),
+				linkTo(methodOn(PersonaController.class).listarTodos()).withRel("personas"));
+	}
+	
+	public CollectionModel<EntityModel<PersonaResponse>> toModel(List<EntityModel<PersonaResponse>> personas) {
+		return CollectionModel.of(personas, linkTo(methodOn(PersonaController.class).listarTodos()).withSelfRel());
+	}
 }

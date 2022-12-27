@@ -1,0 +1,30 @@
+[
+  {
+    "_class": "com.alca.model.Persona",
+    "nombre": "Juan",        
+    "apellidos": "Perez",
+    "edad": 33,
+    "email": "jprez@gmail.com"    
+  }, 
+  {
+    "_class": "com.alca.model.Persona",
+    "nombre": "Andrea",        
+    "apellidos": "Garcia",
+    "edad": 42,
+    "email": "agarcia@gmail.com"  
+  },
+  {
+    "_class": "com.alca.model.Persona",
+    "nombre": "Maria",        
+    "apellidos": "Cardenas",
+    "edad": 28,
+    "email": "mcardenas@gmail.com"  
+  },
+  {
+    "_class": "com.alca.model.Persona",
+    "nombre": "Julio",        
+    "apellidos": "Miranda",	
+    "edad": 35,
+    "email": "jmiranda@gmail.com"  
+  }
+]

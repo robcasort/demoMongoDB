@@ -18,13 +18,5 @@ public class Persona {
 	private String nombre;
 	private String apellidos;
 	private Integer edad;
-	private String email;
-	
-	public Persona(String nombre, String apellidos, Integer edad, String email) {
-		super();
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.edad = edad;
-		this.email = email;
-	}
+	private String email;		
 }

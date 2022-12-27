@@ -23,6 +23,8 @@
 		<jacoco-version>0.8.8</jacoco-version>
 		<log4j2.version>2.19.0</log4j2.version>
 		<junit-jupiter.version>5.9.1</junit-jupiter.version>
+		<surefire.report.plugin>3.0.0-M7</surefire.report.plugin>
+		<mongo.embedded.version>4.3.2</mongo.embedded.version> 
 	</properties> 
     
     <dependencyManagement>
@@ -103,21 +105,65 @@
 	      <groupId>org.junit.platform</groupId>
 	      <artifactId>junit-platform-runner</artifactId>      
 	      <scope>test</scope>
-	    </dependency>		
+	    </dependency>
+	    <dependency>
+		    <groupId>de.flapdoodle.embed</groupId>
+		    <artifactId>de.flapdoodle.embed.mongo.spring26x</artifactId>
+		    <version>${mongo.embedded.version}</version>
+		    <scope>test</scope>
+		</dependency>
 		<dependency>
 		    <groupId>io.rest-assured</groupId>
 		    <artifactId>rest-assured</artifactId>
 		    <scope>test</scope>
 		</dependency>
+		<dependency>
+		  <groupId>io.rest-assured</groupId>
+		  <artifactId>json-path</artifactId>		  
+		  <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.mockito</groupId>
+		    <artifactId>mockito-core</artifactId>		   
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.mockito</groupId>
+		    <artifactId>mockito-junit-jupiter</artifactId>    
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.hamcrest</groupId>
+		    <artifactId>hamcrest</artifactId>		    
+		    <scope>test</scope>
+		</dependency>
+
 	</dependencies>		
 
 	<build>
+		<resources>			 
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>${surefire.report.plugin}</version>                
+            </plugin>
+            
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+            
 			<plugin>
 			    <groupId>org.jacoco</groupId>
 			    <artifactId>jacoco-maven-plugin</artifactId>

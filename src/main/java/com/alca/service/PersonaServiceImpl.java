@@ -1,11 +1,11 @@
 package com.alca.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.alca.controller.exceptions.PersonaNotFoundException;
 import com.alca.model.Persona;
 import com.alca.repository.PersonaRepository;
 
@@ -24,8 +24,9 @@ public class PersonaServiceImpl implements IPersonaService {
 	}
 
 	@Override
-	public Optional<Persona> findById(String id) {
-		return personaRepository.findById(id);
+	public Persona findById(String id) {
+		return personaRepository.findById(id)
+				.orElseThrow(() -> new PersonaNotFoundException(id));
 	}
 
 	@Override

@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import com.alca.model.Persona;
 
 
 // https://docs.spring.io/spring-data/mongodb/docs/1.2.0.RELEASE/reference/html/mongo.repositories.html
-
+@Repository
 public interface PersonaRepository extends MongoRepository<Persona, String> {
 	List<Persona> findByNombre(String nombre);
 	List<Persona> findByApellidos(String apellidos);
